@@ -1,9 +1,11 @@
 import random
 
-def generate_numbers_file(filename, num_numbers, min_value, max_value):
-    """Generates a file with random numbers."""
-    with open(filename, "w") as f:
-        for _ in range(num_numbers):
-            number = random.randint(min_value, max_value)
-            f.write(f"{number}\n")
-    print(f"File '{filename}' with {num_numbers} random numbers generated.")
+
+def create_random_numbers_file(file_name, count, min_val, max_val):
+    """Creates a file containing a specified number of random integers."""
+    with open(file_name, "w") as file:
+        random_numbers = [random.randint(min_val, max_val)
+                          for _ in range(count)]
+        file.write('\n'.join(map(str, random_numbers)) + '\n')
+
+    print(f"Generated '{file_name}' with {count} random numbers.")
